@@ -12,9 +12,9 @@ class Week1Spider(scrapy.Spider):
     allowed_domains = ['maoyan.com']
     start_urls = ['https://maoyan.com/films?showType=3']
 
-    def start_requests(self):
-        url='https://maoyan.com/films?showType=3'
-        yield scrapy.Request(url,callback=self.parse)
+    # def start_requests(self):
+    #     url='https://maoyan.com/films?showType=3'
+    #     yield scrapy.Request(url,callback=self.parse)
 
     def parse(self, response):
         links=Selector(response=response).xpath('//div[@class="movie-item film-channel"]/a/@href').extract()[:10]
